@@ -10,16 +10,16 @@
 	>db.stats();
 	```
 ### Collection:
-1. **Create Collection:**
+1. **Create Collection:**  
 	```>db.createCollection("collection_name");```
-2. **Show All Collection:**
+2. **Show All Collection:**  
 	```>show collections;```
 
 ### Insert Commands:
 1. **Simple Insert:**
 	- ```>db.student.insert({field: <value>});``` 
-	- Here student is a collection. If the collection name already exists then it will append in the existing one, else it will create a new one, so no need to create collection in the first place.
-2. **Check if data inserted properly:**
+	- Here student is a collection. If the collection name already exists then it will append in the existing one, else it will create a new one, so no need to create collection in the first place.  
+2. **Check if data inserted properly:**  
 	- ```>db.student.find();```
 3. **Multiple Insert:**
 	```bash
