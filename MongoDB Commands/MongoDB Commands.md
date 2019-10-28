@@ -80,6 +80,18 @@
 	```bash
 	> db.student.save();
 	```
+6. **Update a specific document and include a new attribute for it:**  
+	```bash
+	> db.food.update({_id:4},{$push:{quantity:{orange:60,butterfruit:200,mango:120}}});
+	```
+7. **Update a specific document by adding elements to the array:**  
+	```bash
+	> db.food.update({_id:3},{$addToSet:{fruits:"orange", "apple", "mango"}});
+	```
+8. **Update a specific document by removing elements to the array:**  
+	```bash
+	> db.food.update({_id:4},{$pop:{fruits:1}}); # 1 to remove last element and -1 to remove first
+	```
 
 ### Searching
 1. **Finding documents based on search criteria:**
@@ -103,22 +115,30 @@
 	# for only greater than use $gt
 	> db.student.find({roll: {$gte: 8}});
 	```
-6. **Finding records with greater than equal to criteria. (Equivalent to “<=” clause):**
+6. **Finding records with greater than equal to criteria. (Equivalent to “<=” clause):**  
 	```bash
 	# for only less than use $lt
 	> db.student.find({roll: {$lte: 8}});
 	```
-7. **Finding records based on the AND Clause:**
+7. **Finding records based on the AND Clause:**  
 	```bash
 	> db.student.find({$and:[{school:'kv'},{ grade:'VII'}]});
 	```
-8. **Finding records based on the AND Clause:**
+8. **Finding records based on the AND Clause:**  
 	```bash
 	> db.student.find({$or:[{school:'kv'},{ grade:'VII'}]});
 	```
-9. **Finding records based on matching patterns:**
+9. **Finding records based on matching patterns:**  
 	```bash
 	> db.student.find({studname:/^a/});
+	```
+10. **Finding element with certain array positions:**  
+	```bash
+	> db.food.find({'fruits.2':'grapes'});
+	```
+11. **Finding documents having certain size of arrays:**  
+	```bash
+	> db.food.find({'fruits':{$size:3}});
 	```
 
 ### Display
@@ -133,4 +153,18 @@
 3. **Skip – This skips the first n records:**
 	```bash
 	> db.student.find().skip(2);
+	```
+4. **Display selected array elements from a given document:**  
+	```bash
+	> db.food.find({_id:1},{"fruits":{$slice:2}});
+	```
+5. **Display all documents having the same array elements:**  
+	```bash
+	> db.food.find({fruits:{$all:["banana","apple"]}});
+	```
+
+### Delete
+1. **Remove an element from the entire set of documents:**  
+	```bash
+	> db.food.update({fruits:'mango'},{$pull:{fruits:'mango'}});
 	```
