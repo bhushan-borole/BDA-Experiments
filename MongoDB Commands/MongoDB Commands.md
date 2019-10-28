@@ -3,27 +3,36 @@
 ### Help Commands:
 1. **List of all methods:**
 	```bash
-	>db.help();
+	> db.help();
 	```
 2. **Get stats of the db:**
 	```bash
-	>db.stats();
+	> db.stats();
 	```
+
 ### Collection:
-1. **Create Collection:**  
-	```>db.createCollection("collection_name");```
-2. **Show All Collection:**  
-	```>show collections;```
+1. **Create Collection:**
+	```bash
+	> db.createCollection("collection_name");
+	```
+2. **Show All Collection:**
+	```bash
+	> show collections;
+	```
 
 ### Insert Commands:
 1. **Simple Insert:**
-	- ```>db.student.insert({field: <value>});``` 
+	```bash
+	> db.student.insert({field: <value>});
+	```
 	- Here student is a collection. If the collection name already exists then it will append in the existing one, else it will create a new one, so no need to create collection in the first place.  
-2. **Check if data inserted properly:**  
-	- ```>db.student.find();```
+2. **Check if data inserted properly:**
+	```bash
+	> db.student.find();
+	```
 3. **Multiple Insert:**
 	```bash
-	>db.student.insert([
+	> db.student.insert([
 		{
 			field: <value>
 		},
