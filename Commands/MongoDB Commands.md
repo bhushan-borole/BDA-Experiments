@@ -146,7 +146,7 @@
 ### Display
 1. **Pretty print:**
 ```bash
-	> db.student.find().pretty;
+	> db.student.find().pretty();
 ```
 2. **Limit – this limits the display of output:**
 ```bash
