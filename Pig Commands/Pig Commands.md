@@ -2,18 +2,19 @@
 
 1. **CopyFromLocal:**  
 ```bash
-	grunt> copyFromLocal <path1> <path2> 
+	grunt> copyFromLocal <path1> <path2> ;
 ```
 
 2. **Dump:**  
 ```bash
-	grunt> student = load '<path>' USING PigStorage(',') as \
+	grunt> s = load '<path>' USING PigStorage(',') as \
 			(param: <param_type>)
+	grunt> dump s;
 ```
 
 3. **Projections:**
 ```bash
-	grunt> studentname = foreach student generate name;
+	grunt> studentname = foreach <relation> generate <param>;
 	grunt> dump studentname;
 ```
 
@@ -50,12 +51,12 @@
 ```
 - Filter  
 ```bash
-	grunt> y = FILTER <realtion> by <condition>;
+	grunt> y = FILTER <relation> by <condition>;
 	grunt> dump y;
 ```
 - ForEach  
 ```bash
-	grunt> x = foreach <realtion> generate <param1>, <param2>...<param_n>;
+	grunt> x = foreach <relation> generate <param1>, <param2>...<param_n>;
 	grunt> dump x;
 ```
 - Cogroup  
